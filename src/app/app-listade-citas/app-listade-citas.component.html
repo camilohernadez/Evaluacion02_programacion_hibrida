@@ -1,0 +1,22 @@
+<ion-list class="quotes-list">
+  <ion-item *ngFor="let cita of listaCitas" lines="full">
+    <ion-label class="ion-text-wrap">
+      <p class="quote-text">{{ cita.Frase }}</p>
+      <p class="quote-author">{{ cita.Autor }}</p>
+    </ion-label>
+    <ion-button 
+      slot="end" 
+      fill="clear" 
+      color="primary"
+      (click)="eliminar(cita.id!)"
+    >
+    <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="listaCitas.length === 0" lines="none">
+    <ion-label class="ion-text-center ion-text-wrap">
+      <p class="no-quotes">No hay citas disponibles</p>
+    </ion-label>
+  </ion-item>
+</ion-list>

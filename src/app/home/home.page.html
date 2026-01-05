@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/configuracion']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="quote-container">
+    <ion-card class="quote-card" *ngIf="citaActual">
+      <ion-card-content>
+        <p class="quote-text">{{ citaActual.Frase }}</p>
+        <p class="quote-author">{{ citaActual.Autor }}</p>
+        <ion-button 
+      expand="block" 
+      color="danger" 
+      (click)="eliminarCitaActual()"
+      *ngIf="permitirEliminar"
+    >
+      <ion-icon slot="start" name="trash"></ion-icon>
+      Eliminar
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+    <ion-card class="quote-card" *ngIf="!citaActual">
+      <ion-card-content>
+        <p class="no-quotes">No hay citas disponibles</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="irAGestion()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

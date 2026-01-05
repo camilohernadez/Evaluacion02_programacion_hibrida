@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+       <ion-back-button defaultHref="/home"/>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Configuraciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-list>
+    <ion-item lines="full">
+      <ion-label class="ion-text-wrap">
+        Permitir eliminar citas en el inicio
+      </ion-label>
+      <ion-toggle 
+        slot="end"
+        [(ngModel)]="permitirEliminar"
+        (ionChange)="guardarConfiguracion()"
+      ></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
